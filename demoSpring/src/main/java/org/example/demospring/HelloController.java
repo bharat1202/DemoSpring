@@ -1,4 +1,5 @@
 package org.example.demospring;
+import com.example.demo.model.User;
 import org.springframework.web.bind.annotation.*;
 
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -24,4 +25,9 @@ public class HelloController {
     public String sayHelloParam(@PathVariable String name) {
         return "Hello " + name + "!";
     }
+    @PostMapping("/post")
+    public String sayHello(@RequestBody User user) {
+        return "Hello " + user.getFirstName() + " " + user.getLastName() + "!";
+    }
+
 }
